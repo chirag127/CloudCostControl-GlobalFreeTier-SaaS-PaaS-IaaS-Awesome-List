@@ -1,0 +1,80 @@
+# CI Pipeline for CloudCostControl-GlobalFreeTier-SaaS-PaaS-IaaS-Awesome-List
+
+# Trigger the workflow on push events to the main branch and on pull request events
+# targeting the main branch. This ensures that only code merged into main is fully tested.
+# It also allows for early detection of issues during the PR review process.
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# Name the CI workflow. This will be displayed in the GitHub Actions UI.
+name: CI
+
+# Define the jobs that will run as part of this workflow.
+jobs:
+  # The build job is responsible for checking out the code, setting up the environment,
+  # and performing linting and testing. This is a fundamental step for ensuring code quality.
+  build:
+    # Use the latest Ubuntu LTS image for the runner environment. This provides a stable
+    # and well-supported operating system for running the build tasks.
+    runs-on: ubuntu-latest
+
+    # Define the steps to be executed within the 'build' job.
+    steps:
+      # Step 1: Checkout the repository code.
+      # This action fetches the repository's code onto the runner, making it available
+      # for subsequent steps.
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Python environment.
+      # We use Python 3.10 as per the project's specified stack and aim for future compatibility.
+      # This action sets up the specified Python version on the runner.
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          # Cache the pip package directory to speed up subsequent builds.
+          # This avoids re-downloading dependencies every time.
+          cache: "pip"
+
+      # Step 3: Install dependencies using uv.
+      # uv is the modern, fast Python package installer and resolver. This step ensures
+      # all project dependencies are installed correctly.
+      - name: Install Dependencies with uv
+        run: |
+          python -m pip install --upgrade pip
+          # Installs dependencies from pyproject.toml using uv.
+          uv install --system
+
+      # Step 4: Run Ruff for linting and formatting.
+      # Ruff is a blazingly fast Python linter and formatter. This step enforces code style
+      # and catches potential errors.
+      - name: Lint with Ruff
+        run: ruff check .
+
+      # Step 5: Run Pytest for testing.
+      # Pytest is the standard for Python testing. This step executes all unit and integration
+      # tests to verify the correctness of the codebase.
+      - name: Test with Pytest
+        run: pytest
+
+      # Step 6: Generate code coverage report (optional but recommended).
+      # This step generates a coverage report, which can be uploaded and visualized.
+      # Assumes pytest-cov is installed via uv install --system.
+      # Uploading coverage can be configured in a separate step or via a service like Codecov.
+      - name: Generate Coverage Report
+        run: pytest --cov=./ --cov-report=xml
+
+      # Step 7: Upload coverage report to Codecov.
+      # This action uploads the generated coverage report to Codecov.io for analysis and visualization.
+      # Ensure the CODECOV_TOKEN is set as a secret in your repository settings.
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          # This tells Codecov to use the generated XML report
+          files: ./coverage.xml
+          fail_ci_if_error: true
