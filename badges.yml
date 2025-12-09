@@ -1,0 +1,30 @@
+badges:
+  - name: Build Status
+    url: https://github.com/chirag127/CloudCostControl-GlobalFreeTier-SaaS-PaaS-IaaS-Awesome-List/actions/workflows/ci.yml
+    image: https://img.shields.io/github/actions/workflow/status/chirag127/CloudCostControl-GlobalFreeTier-SaaS-PaaS-IaaS-Awesome-List/ci.yml?branch=main&style=flat-square&label=CI%20Status
+    markdown: "[![CI Status](https://img.shields.io/github/actions/workflow/status/chirag127/CloudCostControl-GlobalFreeTier-SaaS-PaaS-IaaS-Awesome-List/ci.yml?branch=main&style=flat-square&label=CI%20Status)](https://github.com/chirag127/CloudCostControl-GlobalFreeTier-SaaS-PaaS-IaaS-Awesome-List/actions/workflows/ci.yml)"
+
+  - name: Awesome List Health
+    url: https://github.com/chirag127/CloudCostControl-GlobalFreeTier-SaaS-PaaS-IaaS-Awesome-List/actions/workflows/link-validation.yml
+    image: https://img.shields.io/badge/List%20Health-Validated%20Links-44CC11?style=flat-square&logo=dependabot
+    markdown: "[![List Health](https://img.shields.io/badge/List%20Health-Validated%20Links-44CC11?style=flat-square&logo=dependabot)](https://github.com/chirag127/CloudCostControl-GlobalFreeTier-SaaS-PaaS-IaaS-Awesome-List/actions/workflows/link-validation.yml)"
+
+  - name: Core Stack
+    url: https://github.com/chirag127/CloudCostControl-GlobalFreeTier-SaaS-PaaS-IaaS-Awesome-List
+    image: https://img.shields.io/badge/Artifact%20Type-Awesome%20List%20|%20Markdown-00599c?style=flat-square&logo=markdown
+    markdown: "[![Artifact Type](https://img.shields.io/badge/Artifact%20Type-Awesome%20List%20|%20Markdown-00599c?style=flat-square&logo=markdown)](https://github.com/chirag127/CloudCostControl-GlobalFreeTier-SaaS-PaaS-IaaS-Awesome-List)"
+
+  - name: License
+    url: https://github.com/chirag127/CloudCostControl-GlobalFreeTier-SaaS-PaaS-IaaS-Awesome-List/blob/main/LICENSE
+    image: https://img.shields.io/badge/License-CC%20BY--NC%204.0-blue.svg?style=flat-square
+    markdown: "[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-blue.svg?style=flat-square)](https://github.com/chirag127/CloudCostControl-GlobalFreeTier-SaaS-PaaS-IaaS-Awesome-List/blob/main/LICENSE)"
+
+  - name: Stars
+    url: https://github.com/chirag127/CloudCostControl-GlobalFreeTier-SaaS-PaaS-IaaS-Awesome-List/stargazers
+    image: https://img.shields.io/github/stars/chirag127/CloudCostControl-GlobalFreeTier-SaaS-PaaS-IaaS-Awesome-List.svg?style=flat-square&label=Stars&logo=github
+    markdown: "[![GitHub Stars](https://img.shields.io/github/stars/chirag127/CloudCostControl-GlobalFreeTier-SaaS-PaaS-IaaS-Awesome-List.svg?style=flat-square&label=Stars&logo=github)](https://github.com/chirag127/CloudCostControl-GlobalFreeTier-SaaS-PaaS-IaaS-Awesome-List/stargazers)"
+
+  - name: Maintenance
+    url: https://github.com/chirag127/CloudCostControl-GlobalFreeTier-SaaS-PaaS-IaaS-Awesome-List/pulse
+    image: https://img.shields.io/maintenance/yes/2026?style=flat-square
+    markdown: "[![Maintenance](https://img.shields.io/maintenance/yes/2026?style=flat-square)](https://github.com/chirag127/CloudCostControl-GlobalFreeTier-SaaS-PaaS-IaaS-Awesome-List/pulse)"
